@@ -1,3 +1,5 @@
 # pikkuprojekti
-Academyn 2019 pikkuprojekti
-Tekijät: Carl Syrén & Malin Kraft
+Academyn 2019 pikkuprojekti \n
+Tekijät: Carl Syrén & Malin Kraft \n
+
+
