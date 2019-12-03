@@ -1,0 +1,44 @@
+service: calle-malin-pikkuprojekti
+
+provider:
+  name: aws
+  runtime: python3.6
+
+# you can overwrite defaults here
+  stage: dev
+  region: eu-west-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ses:SendEmail
+        - ses:SendRawEmail
+      Resource: "*"
+
+# you can define service wide environment variables here
+  environment:
+    REGION_NAME: eu-west-1
+
+functions:
+  sendEmail:
+    handler: handler.sendEmail
+    description: This function will send an email
+    events:
+      - http:
+          path: "send-email"
+          method: post
+          integration: lambda
+          cors: true
+          response: 
+            headers: 
+              "Access-Control-Allow_Origin": "'*'"
+
+resources:
+  Resources:
+    CalleMalinBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: calle-malin-bucket-for-pikkuprojekti
+  Outputs:
+     NewOutput:
+       Description: "Malins description for outputs"
+       Value: !Ref CalleMalinBucket
