@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Malinin ja Callen joulutervehdys</title>
+  <meta name="description" content="joulutervehdys">
+  <meta name="Malinin ja Callen joulu" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+<style>
+
+
+
+form {
+  /* Center the form on the page */
+  margin: 0 auto;
+  width: 300px;
+  /* Form outline */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /* Uniform size & alignment */
+
+  width: 40px;
+  text-align: right;
+}
+
+input, 
+textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+
+  /* Uniform text field size */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* Match form field borders */
+  border: 1px solid #999;
+}
+
+input:focus, 
+textarea:focus {
+  /* Additional highlight for focused elements */
+  border-color: #000;
+}
+
+textarea {
+  /* Align multiline text fields with their labels */
+  vertical-align: top;
+
+  /* Provide space to type some text */
+  height: 5em;
+}
+
+body {
+background-image: url("https://calle-malin-bucket-for-pikkuprojekti.s3-eu-west-1.amazonaws.com/images/background.jpg");
+}
+
+</style>
+
+<h1 style="text-align:center"> Send a Holiday Greeting </h1>
+
+<h2 style="text-align:center"> Fill in the form below and send a personalized season greeting to your victim... err, your friend. ;-) </h2>
+
+<form action="https://p7nowlha39.execute-api.eu-west-1.amazonaws.com/dev/send-email" method="post">
+
+<div>
+<label for="name">Sender's name:</label><br>
+  <input type="text" id="name" name="name"><br>
+</div>
+<label for="source">Sender's email:</label><br>
+  <input type="text" id="source" name="source"><br>
+</div>
+ <label for="subject">Subject:</label><br>
+  <input type="text" id="subject" name="subject"><br>
+</div>
+<label for="destination">Recipient's name:</label><br>
+  <input type="text" id="recipient" name="recipient"><br>
+</div>
+<label for="destination">Recipient's email:</label><br>
+  <input type="text" id="destination" name="destination"><br>
+</div>
+<br>
+<div>
+<label for="message">Message:</label><br>
+<textarea id="message" name="message"></textarea><br> 
+<div>
+<br>
+  <button >Submit</button>
+</form>
+
+</body>
+</html>
+
+
