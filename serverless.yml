@@ -38,6 +38,24 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: christmas.awsdeveloper.net
+    callemalindynamodb:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: chreetings
+        AttributeDefinitions:
+          - AttributeName: recipientemail
+            AttributeType: S
+          - AttributeName: insult
+            AttributeType: S
+        KeySchema:
+          - AttributeName: recipientemail
+            KeyType: HASH
+          - AttributeName: insult
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+
   Outputs:
      NewOutput:
        Description: "Malins description for outputs"

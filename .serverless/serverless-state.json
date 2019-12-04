@@ -175,7 +175,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575451619125-2019-12-04T09:26:59.125Z/calle-malin-pikkuprojekti.zip"
+                "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575458038371-2019-12-04T11:13:58.371Z/calle-malin-pikkuprojekti.zip"
               },
               "FunctionName": "calle-malin-pikkuprojekti-dev-sendEmail",
               "Handler": "handler.sendEmail",
@@ -488,7 +488,7 @@
               ]
             }
           },
-          "ApiGatewayDeployment1575451617883": {
+          "ApiGatewayDeployment1575458037060": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -542,6 +542,36 @@
             "Type": "AWS::S3::Bucket",
             "Properties": {
               "BucketName": "christmas.awsdeveloper.net"
+            }
+          },
+          "callemalindynamodb": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+              "TableName": "chreetings",
+              "AttributeDefinitions": [
+                {
+                  "AttributeName": "recipientemail",
+                  "AttributeType": "S"
+                },
+                {
+                  "AttributeName": "insult",
+                  "AttributeType": "S"
+                }
+              ],
+              "KeySchema": [
+                {
+                  "AttributeName": "recipientemail",
+                  "KeyType": "HASH"
+                },
+                {
+                  "AttributeName": "insult",
+                  "KeyType": "RANGE"
+                }
+              ],
+              "ProvisionedThroughput": {
+                "ReadCapacityUnits": 5,
+                "WriteCapacityUnits": 5
+              }
             }
           }
         },
@@ -742,6 +772,36 @@
           "Properties": {
             "BucketName": "christmas.awsdeveloper.net"
           }
+        },
+        "callemalindynamodb": {
+          "Type": "AWS::DynamoDB::Table",
+          "Properties": {
+            "TableName": "chreetings",
+            "AttributeDefinitions": [
+              {
+                "AttributeName": "recipientemail",
+                "AttributeType": "S"
+              },
+              {
+                "AttributeName": "insult",
+                "AttributeType": "S"
+              }
+            ],
+            "KeySchema": [
+              {
+                "AttributeName": "recipientemail",
+                "KeyType": "HASH"
+              },
+              {
+                "AttributeName": "insult",
+                "KeyType": "RANGE"
+              }
+            ],
+            "ProvisionedThroughput": {
+              "ReadCapacityUnits": 5,
+              "WriteCapacityUnits": 5
+            }
+          }
         }
       },
       "Outputs": {
@@ -758,7 +818,7 @@
     "artifact": "C:\\Users\\malin\\Documents\\academyroot\\week10\\pikkuprojekti\\.serverless\\calle-malin-pikkuprojekti.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/calle-malin-pikkuprojekti/dev/1575451619125-2019-12-04T09:26:59.125Z",
+    "artifactDirectoryName": "serverless/calle-malin-pikkuprojekti/dev/1575458038371-2019-12-04T11:13:58.371Z",
     "artifact": "calle-malin-pikkuprojekti.zip"
   }
 }
