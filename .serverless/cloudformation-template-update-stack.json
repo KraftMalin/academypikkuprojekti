@@ -122,7 +122,14 @@
                   "Effect": "Allow",
                   "Action": [
                     "ses:SendEmail",
-                    "ses:SendRawEmail"
+                    "ses:SendRawEmail",
+                    "dynamodb:BatchGetItem",
+                    "dynamodb:GetItem",
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:BatchWriteItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem"
                   ],
                   "Resource": "*"
                 }
@@ -153,7 +160,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575460082248-2019-12-04T11:48:02.248Z/calle-malin-pikkuprojekti.zip"
+          "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575462284876-2019-12-04T12:24:44.876Z/calle-malin-pikkuprojekti.zip"
         },
         "FunctionName": "calle-malin-pikkuprojekti-dev-sendEmail",
         "Handler": "handler.sendEmail",
@@ -178,14 +185,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "SendEmailLambdaVersionnpzMc5UoClr1aSjq2qxGtjJs6wwf54GABpwIle6s5U": {
+    "SendEmailLambdaVersionuRzvwLtut8MocvXNhtMArYMpFlhIncEBvrXq1h8X74c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SendEmailLambdaFunction"
         },
-        "CodeSha256": "+0fgRvaJJq6+id7e/SMAvnUjB8pY8OPC9oKCMpmIkdA=",
+        "CodeSha256": "bVysv5jEe0GJd8FwRc27tmGTu2159babAIhFdPsB76s=",
         "Description": "This function will send an email"
       }
     },
@@ -466,7 +473,7 @@
         ]
       }
     },
-    "ApiGatewayDeployment1575460080981": {
+    "ApiGatewayDeployment1575462283541": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -562,7 +569,7 @@
     "SendEmailLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SendEmailLambdaVersionnpzMc5UoClr1aSjq2qxGtjJs6wwf54GABpwIle6s5U"
+        "Ref": "SendEmailLambdaVersionuRzvwLtut8MocvXNhtMArYMpFlhIncEBvrXq1h8X74c"
       }
     },
     "ServiceEndpoint": {

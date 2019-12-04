@@ -12,6 +12,13 @@ provider:
       Action:
         - ses:SendEmail
         - ses:SendRawEmail
+        - dynamodb:BatchGetItem
+        - dynamodb:GetItem
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:BatchWriteItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
       Resource: "*"
 
 # you can define service wide environment variables here

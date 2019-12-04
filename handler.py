@@ -4,33 +4,25 @@ import os
 from botocore.vendored import requests
 from boto3.dynamodb.conditions import Key, Attr
 
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb', region_name='eu-west-1')
 table = dynamodb.Table('chreetings')
 CHARSET = 'UTF-8'
 
-def saveEvilQDB(recipient, evil_quote):
-    try:
-        table.put_item(
+def saveEvilQDB(destination, evil_quote):
+    response = table.put_item(
         Item={
-                'recipientemail': recipient,
-                'insult': evil_quote
-                }
-                )
-        return True
-    except:
-        return False
+            'recipientemail': destination,
+            'insult': evil_quote
+            }
+    )
+
     
-
-def getEvilQuote(recipient):
-    i = 0
-    while i <= 10:
-        response = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json', allow_redirects=False)
-        quote = response.json()
-        if saveEvilQDB(recipient, quote):
-            return quote
-        i += 1 
-
-    return "it's all said and done"
+def getEvilQuote(destination):
+    response = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json', allow_redirects=False)
+    quote = response.json()
+    quote = quote['insult']
+    saveEvilQDB(destination, quote)
+    return quote
 
 
 def parseMessageToHTML(recipient, evil_quote, message, name):
@@ -56,7 +48,7 @@ def sendEmail(event, context):
     message = data['message']
     recipient = data['recipient']    
     destination = data['destination']
-    evil_quote = getEvilQuote(recipient)
+    evil_quote = getEvilQuote(destination)
 
     _message = "Message from: " + name + "\nEmail: " + source + "\nMessage content: " + message 
     body_text = 'Hi ' + recipient + ', here is a seasons greeting for you: \n\n' + evil_quote + '\n\n' + message 
@@ -87,6 +79,6 @@ def sendEmail(event, context):
         },
         Source=source,
     )
-    return 'I am sure your friend *krhm*, appriciates your effort. Your friend was wished: ' + evil_quote
+    return 'I am sure your friend *krhm*, appreciates your effort. Your friend was wished: ' + evil_quote
 
 
