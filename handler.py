@@ -2,8 +2,33 @@ import json
 import boto3
 import os
 from botocore.vendored import requests
+from boto3.dynamodb.conditions import Key, Attr
 
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('chreetings')
 CHARSET = 'UTF-8'
+
+
+
+def saveEvilQDB(recipient, evil_quote):
+    table.put_item(
+       Item={
+            'recipientemail': recipient,
+            'insult': evil_quote
+            }
+            )
+
+def searchDuplicatesDB(recipient, evil_quote):
+    duplicate = table.query(
+        KeyConditionExpression=Key('recipientemail').eq(recipient)
+    )
+    for i in duplicate['Items']:
+        if(i['insult'] == evil_quote):
+            evil_quote = getEvilQuote()
+            searchDuplicatesDB(recipient, evil_quote)
+    saveEvilQDB(recipient, evil_quote)
+
+
 
 def getEvilQuote():
     response = requests.get('https://evilinsult.com/generate_insult.php?lang=en&type=json', allow_redirects=False)
@@ -36,6 +61,9 @@ def sendEmail(event, context):
     recipient = data['recipient']    
     destination = data['destination']
     evil_quote = getEvilQuote()
+
+    //if evil_quote == dynamoDB:ssa, evil_quote = getEvilQuote()
+
     _message = "Message from: " + name + "\nEmail: " + source + "\nMessage content: " + message 
     body_text = 'Hi ' + recipient + ', here is a seasons greeting for you: \n\n' + getEvilQuote() + '\n\n' + message 
     body_html = parseMessageToHTML(recipient, evil_quote, message, name)
