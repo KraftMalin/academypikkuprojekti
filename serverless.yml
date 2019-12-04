@@ -37,7 +37,7 @@ resources:
     CalleMalinBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: calle-malin-bucket-for-pikkuprojekti
+        BucketName: christmas.awsdeveloper.net
   Outputs:
      NewOutput:
        Description: "Malins description for outputs"

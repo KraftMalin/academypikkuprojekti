@@ -153,7 +153,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575383093142-2019-12-03T14:24:53.142Z/calle-malin-pikkuprojekti.zip"
+          "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575448859004-2019-12-04T08:40:59.004Z/calle-malin-pikkuprojekti.zip"
         },
         "FunctionName": "calle-malin-pikkuprojekti-dev-sendEmail",
         "Handler": "handler.sendEmail",
@@ -178,14 +178,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "SendEmailLambdaVersionFrMe4mfJcw04KBFC3k1Nmc5BR6B8HvMCNuX9VhH04": {
+    "SendEmailLambdaVersionBpH9AinAwoee9YNW5qTcHtny0Hl6WTe2prZQgTdG8Dk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "SendEmailLambdaFunction"
         },
-        "CodeSha256": "6ZsEbE0nxZn9iKLfxtSrIuobwMYCk6wTUn5G+mWOVMI=",
+        "CodeSha256": "d1/CGxd5SnNxhtHTyLYOkWi6tGSL0zJb5nSoHNHT1sI=",
         "Description": "This function will send an email"
       }
     },
@@ -466,7 +466,7 @@
         ]
       }
     },
-    "ApiGatewayDeployment1575383091870": {
+    "ApiGatewayDeployment1575448857464": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -519,7 +519,7 @@
     "CalleMalinBucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "calle-malin-bucket-for-pikkuprojekti"
+        "BucketName": "christmas.awsdeveloper.net"
       }
     }
   },
@@ -532,7 +532,7 @@
     "SendEmailLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "SendEmailLambdaVersionFrMe4mfJcw04KBFC3k1Nmc5BR6B8HvMCNuX9VhH04"
+        "Ref": "SendEmailLambdaVersionBpH9AinAwoee9YNW5qTcHtny0Hl6WTe2prZQgTdG8Dk"
       }
     },
     "ServiceEndpoint": {

@@ -11,12 +11,15 @@ def getEvilQuote():
     return quote['insult']
 
 def parseMessageToHTML(recipient, evil_quote, message, name):
-    response = requests.get('https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjd8rvl1ZnmAhWyxaYKHQ8HCkcQjRx6BAgBEAQ&url=https%3A%2F%2Fblog.mypostcard.com%2Fen%2Fhistory-of-christmas-cards%2F&psig=AOvVaw0U3RLoKJ47v7SDFr3Gepym&ust=1575469048889106', allow_redirects=False)
     message = '''
     <html>
-    <head> Dear ''' + recipient + '''</head> 
+    <head></head>
+    <body> 
+    <img width=100 height=100 id="1" src=https://ih1.redbubble.net/image.646323682.6946/flat,750x,075,f-pad,750x1000,f8f8f8.jpg'>
+    </body>
     </html>
     '''
+
     return message
     
 
@@ -59,6 +62,6 @@ def sendEmail(event, context):
         },
         Source=source,
     )
-    return 'I am sure your friend *krhm*, appriciates your effort'
+    return 'I am sure your friend *krhm*, appriciates your effort. Your friend was wished: ' + evil_quote
 
 
