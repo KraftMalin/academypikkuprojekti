@@ -175,7 +175,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575448859004-2019-12-04T08:40:59.004Z/calle-malin-pikkuprojekti.zip"
+                "S3Key": "serverless/calle-malin-pikkuprojekti/dev/1575451619125-2019-12-04T09:26:59.125Z/calle-malin-pikkuprojekti.zip"
               },
               "FunctionName": "calle-malin-pikkuprojekti-dev-sendEmail",
               "Handler": "handler.sendEmail",
@@ -200,14 +200,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "SendEmailLambdaVersionBpH9AinAwoee9YNW5qTcHtny0Hl6WTe2prZQgTdG8Dk": {
+          "SendEmailLambdaVersionQWixI9GKLz7rhHD85ljxzKwPVf26b7ohSf2r0fppSw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SendEmailLambdaFunction"
               },
-              "CodeSha256": "d1/CGxd5SnNxhtHTyLYOkWi6tGSL0zJb5nSoHNHT1sI=",
+              "CodeSha256": "4cqYBHhpV3TLjuNEYBIIbb96J2J6U60fDSk++7RUM1U=",
               "Description": "This function will send an email"
             }
           },
@@ -488,7 +488,7 @@
               ]
             }
           },
-          "ApiGatewayDeployment1575448857464": {
+          "ApiGatewayDeployment1575451617883": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -554,7 +554,7 @@
           "SendEmailLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SendEmailLambdaVersionBpH9AinAwoee9YNW5qTcHtny0Hl6WTe2prZQgTdG8Dk"
+              "Ref": "SendEmailLambdaVersionQWixI9GKLz7rhHD85ljxzKwPVf26b7ohSf2r0fppSw"
             }
           },
           "ServiceEndpoint": {
@@ -758,7 +758,7 @@
     "artifact": "C:\\Users\\malin\\Documents\\academyroot\\week10\\pikkuprojekti\\.serverless\\calle-malin-pikkuprojekti.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/calle-malin-pikkuprojekti/dev/1575448859004-2019-12-04T08:40:59.004Z",
+    "artifactDirectoryName": "serverless/calle-malin-pikkuprojekti/dev/1575451619125-2019-12-04T09:26:59.125Z",
     "artifact": "calle-malin-pikkuprojekti.zip"
   }
 }

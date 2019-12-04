@@ -40,7 +40,10 @@ def parseMessageToHTML(recipient, evil_quote, message, name):
     <html>
     <head></head>
     <body> 
-    <img width=100 height=100 id="1" src=https://ih1.redbubble.net/image.646323682.6946/flat,750x,075,f-pad,750x1000,f8f8f8.jpg'>
+    <h2> Hi! ''' +  recipient +  ''',</h2><br><h3>Your 'friend', ''' + name + ''' wanted to send you a christmas card</h3>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFp_BGp2qV2LkH78OVatRc8u8N5vLe1RtnO-5mD6_EzCq93u7qtw&s">
+    <br>Wishing that "''' + evil_quote + '''"<br>And finally, a few personal words:<br>''' + message + '''
+    <br><h3> With LOVE,<br>''' + name + '''!</h3>
     </body>
     </html>
     '''
