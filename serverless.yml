@@ -65,5 +65,5 @@ resources:
 
   Outputs:
      NewOutput:
-       Description: "Malins description for outputs"
+       Description: "The bucket for christmascards"
        Value: !Ref CalleMalinBucket
